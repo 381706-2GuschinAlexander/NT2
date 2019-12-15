@@ -14,7 +14,7 @@ function CreateTable(number){
         var t = document.createElement("A");
         t.setAttribute("id", "node" + (number * 100 + i * 10 + k));
         t.innerHTML = "0";
-        t.onclick = CanPlace(this);
+        t.onclick = CanPlace(t);
         z.appendChild(t);
         document.getElementById("myTr" + i + number * 10).appendChild(z);
       }
