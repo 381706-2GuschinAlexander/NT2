@@ -28,12 +28,13 @@ function CreateTable(number){
 
   for(let i = 0; i  < 10; ++i){
     let y = document.createElement("TR");
-    y.setAttribute("id", "tbr" + i + number * 10);
+    y.setAttribute("id", "tr" + (i + number * 10));
     document.getElementById("Table" + number).appendChild(y);
     for(let k = 0; k < 10; ++k){
         let z = document.createElement("TD");
         z.innerHTML = '0';
-        document.getElementById("tbr" + i + number * 10).appendChild(z);
+        z.setAttribute("id", "td" + number + i + k)
+        document.getElementById("tr" + (i + number * 10)).appendChild(z);
       }
     }
 
@@ -62,8 +63,8 @@ function CreateTable(number){
         if (!td)
           return;
         let curr_id = td.getAttribute("id");
-        let x = curr_id[4];
-        let y = curr_id[5];
+        let x = curr_id[3];
+        let y = curr_id[4];
 
         let xhttp = XMLHttpRequest();
       }
