@@ -23,7 +23,7 @@
         xhttp.onreadystatechange = function() {
           if (this.readyState == 4 && this.status == 200) {
             client_count = Number(this.response);
-              if (client_count === 2){
+              if (client_count === 1){
                 button.innerHTML = "Enter game";
               }
             }
@@ -32,6 +32,12 @@
           xhttp.open("POST", "http://127.0.0.1:3000/index.html", true);
           xhttp.send();
       });
+
+      button.onclick = function(){
+        let xhttp = new XMLHttpRequest();
+        xhttp.open("POST", "http://127.0.0.1:3000/game_count", true);
+        xhttp.send();
+      }
       </script>
 </body>
 </html>
