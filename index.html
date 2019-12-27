@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Client</title>
+    <style>
+        table, td {
+          border: 1px solid black;
+          text-align: center;
+        }
+        </style>
+</head>
+<body>
+    <a href="game.html"> <button id="st_bt">Start</button></a>
+    <script>
+      let button = document.getElementById("st_bt");
+      document.addEventListener("DOMContentLoaded", function(event) {
+        let client_count = 0;
+        let xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            client_count = Number(this.response);
+              if (client_count === 1){
+                button.innerHTML = "Enter game";
+              }
+            }
+        }
+      
+          xhttp.open("POST", "http://127.0.0.1:3000/index.html", true);
+          xhttp.send();
+      });
+
+      button.onclick = function(){
+        let xhttp = new XMLHttpRequest();
+        xhttp.open("POST", "http://127.0.0.1:3000/game_count", true);
+        xhttp.send();
+      }
+      </script>
+</body>
+</html>
